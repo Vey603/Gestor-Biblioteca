@@ -1,0 +1,12 @@
+# Archivos de datos generados
+Prestamos.txt
+*.txt
+
+# Python
+.mypy_cache
+
+# IDEs
+.vscode/
+
+# Venv
+.venv
