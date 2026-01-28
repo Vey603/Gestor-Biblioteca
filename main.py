@@ -1,7 +1,6 @@
-PRESTAMOS = "Prestamos.txt"
-
-
 class Libro:
+    _PRESTAMOS = "Prestamos.txt"
+
     def __init__(self, titulo: str, autor: str, isbn: str, disponible: bool):
         self.titulo = titulo
         self.autor = autor
@@ -15,7 +14,7 @@ class Libro:
     def prestar(self):
         if self.disponible:
             self.disponible = False
-            with open(PRESTAMOS, "a", encoding="utf-8") as prestamo:
+            with open(self._PRESTAMOS, "a", encoding="utf-8") as prestamo:
                 prestamo.write(self.titulo + "\n")
             return f"El libro '{self.titulo}' ha sido prestado exitosamente. Ya no está disponible."
         return f"El libro '{self.titulo}' no está disponible en este momento."
@@ -27,7 +26,7 @@ class Libro:
     def es_popular(self):
         counter = 0
         try:
-            with open(PRESTAMOS, "r", encoding="utf-8") as archivo:
+            with open(self._PRESTAMOS, "r", encoding="utf-8") as archivo:
                 prestamos = archivo.readlines()
                 if prestamos:
                     for prestamo in prestamos:
@@ -54,4 +53,4 @@ catalogo: list = [mi_libro, otro_libro]
 #     print(f"No.{index} -- {libro}")
 
 print(mi_libro.prestar())
-print(mi_libro.prestar())
+print(mi_libro.devolver())
