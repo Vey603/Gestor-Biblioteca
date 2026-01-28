@@ -15,9 +15,10 @@ class Libro:
     def prestar(self):
         if self.disponible:
             self.disponible = False
-        with open(PRESTAMOS, "a", encoding="utf-8") as prestamo:
-            prestamo.write(self.titulo + "\n")
-        return f"El libro: {self.titulo} ha sido prestado exitosamente. Ya no está disponible."
+            with open(PRESTAMOS, "a", encoding="utf-8") as prestamo:
+                prestamo.write(self.titulo + "\n")
+            return f"El libro '{self.titulo}' ha sido prestado exitosamente. Ya no está disponible."
+        return f"El libro '{self.titulo}' no está disponible en este momento."
 
     def devolver(self):
         self.disponible = True
@@ -33,7 +34,7 @@ class Libro:
                         if prestamo.strip() == self.titulo.strip():
                             counter += 1
                     if counter >= 5:
-                        return f"¡El libro {self.titulo} es popular! Se han realizado {counter} préstamos de este título."
+                        return f"¡El libro '{self.titulo}' es popular! Se han realizado {counter} préstamos de este título."
         except FileNotFoundError:
             print(
                 "ERROR. No se ha realizado ningún préstamo hasta el momento. Intentalo denuevo más tarde."
@@ -53,11 +54,4 @@ catalogo: list = [mi_libro, otro_libro]
 #     print(f"No.{index} -- {libro}")
 
 print(mi_libro.prestar())
-print(mi_libro.devolver())
 print(mi_libro.prestar())
-print(mi_libro.devolver())
-print(mi_libro.prestar())
-print(mi_libro.devolver())
-print(mi_libro.prestar())
-print(mi_libro.devolver())
-print(mi_libro.es_popular())
