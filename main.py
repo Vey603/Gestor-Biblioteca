@@ -1,14 +1,13 @@
 from biblioteca import Biblioteca
-from exceptions import BibliotecaError
+from exceptions import UsuarioNoEncontradoError
 from libros import LibroFisico
-from usuarios import Estudiante, Profesor, SolicitanteProtocol
+from usuarios import Estudiante, Profesor
 
-biblioteca = Biblioteca("Platzi")
+biblioteca = Biblioteca("Platzi Biblioteca")
 
 estudiante = Estudiante("Bayron", 1114209584, "Sistemas")
 estudiante_uno = Estudiante("Juan", 11159834682, "Diseño")
 profesor = Profesor("Jhon", 1112204554)
-usuarios: list[SolicitanteProtocol] = [estudiante, estudiante_uno, profesor]
 
 
 habitos_atomicos = LibroFisico(
@@ -24,18 +23,25 @@ no_me_puedes_lastimar = LibroFisico(
     True,
 )
 
-si_me_puedes_lastimar = LibroFisico(
-    "Si me puedes lastimar",
-    "David Goggins",
-    "195-9474-12564-14",
-    True,
-)
+biblioteca.usuarios = [
+    estudiante,
+    estudiante_uno,
+    profesor,
+]
+biblioteca.libros = [
+    habitos_atomicos,
+    no_me_puedes_lastimar,
+]
 
-biblioteca.libros = [habitos_atomicos, no_me_puedes_lastimar, si_me_puedes_lastimar]
+print("Bienvenido a Platzi Biblioteca.")
+print("Libros Disponibles:")
+for titulo in biblioteca.libros_disponibles():
+    print(f"  - {titulo}")
+print("")
 
+cedula = int(input("Por favor, digite su número de cédula: "))
 try:
-    print(estudiante.solicitar_libro(None))
-except BibliotecaError:
-    print("Error. No se pudo solicitar el libro.")
-
-print(estudiante.solicitar_libro("Hábitos Atómicos"))
+    usuario = biblioteca.buscar_usuario(cedula)
+    print(f"Cédula: {usuario.cedula} -- Nombre: {usuario.nombre}")
+except UsuarioNoEncontradoError:
+    print("Error, el usuario no fue encontrado")

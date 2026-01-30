@@ -4,3 +4,11 @@ class BibliotecaError(Exception):
 
 class TituloInvalidoError(BibliotecaError):
     pass
+
+
+class LibroNoDisponibleError(BibliotecaError):
+    pass
+
+
+class UsuarioNoEncontradoError(Exception):
+    pass
