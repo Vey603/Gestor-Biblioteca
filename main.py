@@ -1,56 +1,41 @@
-class Libro:
-    _PRESTAMOS = "Prestamos.txt"
+from biblioteca import Biblioteca
+from exceptions import BibliotecaError
+from libros import LibroFisico
+from usuarios import Estudiante, Profesor, SolicitanteProtocol
 
-    def __init__(self, titulo: str, autor: str, isbn: str, disponible: bool):
-        self.titulo = titulo
-        self.autor = autor
-        if len(isbn) >= 17:
-            self.isbn = isbn
-        self.disponible = disponible
+biblioteca = Biblioteca("Platzi")
 
-    def __str__(self):
-        return f"Título: {self.titulo} -- Autor: {self.autor} -- Disponible: {self.disponible}"
-
-    def prestar(self):
-        if self.disponible:
-            self.disponible = False
-            with open(self._PRESTAMOS, "a", encoding="utf-8") as prestamo:
-                prestamo.write(self.titulo + "\n")
-            return f"El libro '{self.titulo}' ha sido prestado exitosamente. Ya no está disponible."
-        return f"El libro '{self.titulo}' no está disponible en este momento."
-
-    def devolver(self):
-        self.disponible = True
-        return f"El libro {self.titulo} ha sido devuelto exitosamente. Ahora está disponible."
-
-    def es_popular(self):
-        counter = 0
-        try:
-            with open(self._PRESTAMOS, "r", encoding="utf-8") as archivo:
-                prestamos = archivo.readlines()
-                if prestamos:
-                    for prestamo in prestamos:
-                        if prestamo.strip() == self.titulo.strip():
-                            counter += 1
-                    if counter >= 5:
-                        return f"¡El libro '{self.titulo}' es popular! Se han realizado {counter} préstamos de este título."
-        except FileNotFoundError:
-            print(
-                "ERROR. No se ha realizado ningún préstamo hasta el momento. Intentalo denuevo más tarde."
-            )
+estudiante = Estudiante("Bayron", 1114209584, "Sistemas")
+estudiante_uno = Estudiante("Juan", 11159834682, "Diseño")
+profesor = Profesor("Jhon", 1112204554)
+usuarios: list[SolicitanteProtocol] = [estudiante, estudiante_uno, profesor]
 
 
-mi_libro = Libro(
-    "100 Años de Soledad", "Gabriel García Márquez", "978-958-8886-21-3", True
+habitos_atomicos = LibroFisico(
+    "Hábitos Atómicos",
+    "James Clear",
+    "132-9874-12364-14",
+    True,
 )
-otro_libro = Libro(
-    "El principito", "Antoine de Saint-Exupéry", "978-84-7888-719-4", False
+no_me_puedes_lastimar = LibroFisico(
+    "No me puedes lastimar",
+    "David Goggins",
+    "195-9474-12564-14",
+    True,
 )
 
-catalogo: list = [mi_libro, otro_libro]
+si_me_puedes_lastimar = LibroFisico(
+    "Si me puedes lastimar",
+    "David Goggins",
+    "195-9474-12564-14",
+    True,
+)
 
-# for index, libro in enumerate(catalogo, start=1):
-#     print(f"No.{index} -- {libro}")
+biblioteca.libros = [habitos_atomicos, no_me_puedes_lastimar, si_me_puedes_lastimar]
 
-print(mi_libro.prestar())
-print(mi_libro.devolver())
+try:
+    print(estudiante.solicitar_libro(None))
+except BibliotecaError:
+    print("Error. No se pudo solicitar el libro.")
+
+print(estudiante.solicitar_libro("Hábitos Atómicos"))
