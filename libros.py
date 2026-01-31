@@ -67,6 +67,7 @@ class Libro(LibroBase):
         self.disponible = True
         return f"El libro {self.titulo} ha sido devuelto exitosamente. Ahora está disponible."
 
+    @property
     def es_popular(self):
         counter = 0
         try:
@@ -82,6 +83,10 @@ class Libro(LibroBase):
             print(
                 "ERROR. No se ha realizado ningún préstamo hasta el momento. Intentalo denuevo más tarde."
             )
+
+    @property
+    def descripcion_completa(self):
+        return f"'{self.titulo}' de {self.autor}. (ISBN: {self.isbn})"
 
 
 class LibroFisico(Libro):

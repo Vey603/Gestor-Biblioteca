@@ -12,8 +12,8 @@ biblioteca.libros = data_libros
 
 print("Bienvenido a Platzi Biblioteca.")
 print("Libros Disponibles:")
-for titulo in biblioteca.libros_disponibles():
-    print(f"  - {titulo}")
+for libro in biblioteca.libros_disponibles():
+    print(f"  - {libro.descripcion_completa}")
 print("")
 
 cedula = int(input("Por favor, digite su número de cédula: "))
