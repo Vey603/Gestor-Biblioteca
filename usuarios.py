@@ -16,7 +16,7 @@ class UsuarioBase(ABC):
         pass
 
 
-class Usuario:
+class Usuario(UsuarioBase):
     def __init__(self, nombre, cedula: int):
         self.nombre = nombre
         self.cedula = cedula
