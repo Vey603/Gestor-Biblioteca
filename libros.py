@@ -65,7 +65,7 @@ class Libro:
 
 
 class LibroFisico(Libro):
-    def __init__(self, titulo, autor, isbn, disponible):
+    def __init__(self, titulo, autor, isbn, disponible: bool = True):
         super().__init__(titulo, autor, isbn, disponible)
 
     def calcular_duracion(self):
@@ -73,7 +73,7 @@ class LibroFisico(Libro):
 
 
 class LibroElectronico(Libro):
-    def __init__(self, titulo, autor, isbn, disponible):
+    def __init__(self, titulo, autor, isbn, disponible: bool = True):
         super().__init__(titulo, autor, isbn, disponible)
 
     def calcular_duracion(self):

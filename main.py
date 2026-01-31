@@ -1,37 +1,14 @@
 from biblioteca import Biblioteca
-from exceptions import UsuarioNoEncontradoError
-from libros import LibroFisico
-from usuarios import Estudiante, Profesor
+from data import data_estudiantes, data_libros
+from exceptions import LibroNoDisponibleError, UsuarioNoEncontradoError
+from usuarios import Profesor
 
 biblioteca = Biblioteca("Platzi Biblioteca")
 
-estudiante = Estudiante("Bayron", 1114209584, "Sistemas")
-estudiante_uno = Estudiante("Juan", 11159834682, "Diseño")
 profesor = Profesor("Jhon", 1112204554)
 
-
-habitos_atomicos = LibroFisico(
-    "Hábitos Atómicos",
-    "James Clear",
-    "132-9874-12364-14",
-    True,
-)
-no_me_puedes_lastimar = LibroFisico(
-    "No me puedes lastimar",
-    "David Goggins",
-    "195-9474-12564-14",
-    True,
-)
-
-biblioteca.usuarios = [
-    estudiante,
-    estudiante_uno,
-    profesor,
-]
-biblioteca.libros = [
-    habitos_atomicos,
-    no_me_puedes_lastimar,
-]
+biblioteca.usuarios = [profesor] + data_estudiantes
+biblioteca.libros = data_libros
 
 print("Bienvenido a Platzi Biblioteca.")
 print("Libros Disponibles:")
@@ -43,5 +20,12 @@ cedula = int(input("Por favor, digite su número de cédula: "))
 try:
     usuario = biblioteca.buscar_usuario(cedula)
     print(f"Cédula: {usuario.cedula} -- Nombre: {usuario.nombre}")
-except UsuarioNoEncontradoError:
-    print("Error, el usuario no fue encontrado")
+except UsuarioNoEncontradoError as e:
+    print(e)
+
+titulo = input("Digite el título del libro deseado: ")
+try:
+    print(resultado := biblioteca.buscar_libro(titulo))
+    print(usuario.solicitar_libro(titulo))
+except LibroNoDisponibleError as e:
+    print(e)
