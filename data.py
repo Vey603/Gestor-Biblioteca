@@ -20,6 +20,9 @@ libro9 = LibroFisico(
     "El Monje Que Vendió Su Ferrari", "Robin Sharma", "978-84-9793-711-2"
 )
 libro10 = LibroFisico("Padre Rico Padre Pobre", "Robert Kiyosaki", "978-16-945-1873-5")
+libro_no_disponible = LibroFisico.crear_no_disponible(
+    "Libro de prueba", "Autor de Prueba", "1234-4563-14523-45"
+)
 
 # Creación de 10 estudiantes
 estudiante1 = Estudiante("Carlos Ramírez", 1005234567, "Ingeniería de Sistemas")
@@ -32,6 +35,7 @@ estudiante7 = Estudiante("Diego Torres", 1009876543, "Economía")
 estudiante8 = Estudiante("Sofía Rodríguez", 1001234567, "Diseño Gráfico")
 estudiante9 = Estudiante("Andrés Castillo", 1006543210, "Contaduría")
 estudiante10 = Estudiante("Valentina Morales", 1003210987, "Ingeniería Industrial")
+estudiante_sistemas = Estudiante.estudiante_sistemas("Bayron", 1114219584)
 
 data_libros = [
     libro1,
@@ -44,6 +48,7 @@ data_libros = [
     libro8,
     libro9,
     libro10,
+    libro_no_disponible,
 ]
 
 data_estudiantes = [
@@ -57,4 +62,5 @@ data_estudiantes = [
     estudiante8,
     estudiante9,
     estudiante10,
+    estudiante_sistemas,
 ]

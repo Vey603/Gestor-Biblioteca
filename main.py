@@ -10,16 +10,19 @@ profesor = Profesor("Jhon", 1112204554)
 biblioteca.usuarios = [profesor] + data_estudiantes
 biblioteca.libros = data_libros
 
+print(biblioteca.usuarios[11].nombre_completo)
+print(biblioteca.usuarios[11].carrera)
+
 print("Bienvenido a Platzi Biblioteca.")
 print("Libros Disponibles:")
-for libro in biblioteca.libros_disponibles():
+for libro in biblioteca.libros_disponibles:
     print(f"  - {libro.descripcion_completa}")
 print("")
 
 cedula = int(input("Por favor, digite su número de cédula: "))
 try:
     usuario = biblioteca.buscar_usuario(cedula)
-    print(f"Cédula: {usuario.cedula} -- Nombre: {usuario.nombre}")
+    print(usuario.nombre_completo)
 except UsuarioNoEncontradoError as e:
     print(e)
 

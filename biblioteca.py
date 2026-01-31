@@ -7,6 +7,7 @@ class Biblioteca:
         self.libros = []
         self.usuarios = []
 
+    @property
     def libros_disponibles(self):
         return [libro for libro in self.libros if libro.disponible]
 
@@ -25,3 +26,7 @@ class Biblioteca:
         raise LibroNoDisponibleError(
             f"Error. El libro con el título '{titulo}' no existe o no se encuentra disponible."
         )
+
+    @staticmethod
+    def validar_isbn(isbn: str) -> bool:
+        return len(isbn) >= 17

@@ -22,6 +22,10 @@ class Usuario(UsuarioBase):
         self.cedula = cedula
         self.libros_prestados: list = []
 
+    @property
+    def nombre_completo(self):
+        return f"Nombre: {self.nombre} -- Cédula: {self.cedula}"
+
     def solicitar_libro(self, titulo):
         return f"Solicitud de libro {titulo} realizada."
 
@@ -46,6 +50,10 @@ class Estudiante(Usuario):
             return f"Prestamo del libro '{titulo}' realizado."
         else:
             return f"Error, no se pudo completar el préstamo. Límite de libros alcanzado: {self.limite_libros}"
+
+    @classmethod
+    def estudiante_sistemas(cls, nombre: str, cedula: int):
+        return cls(nombre, cedula, carrera="Sistemas")
 
 
 class Profesor(Usuario):
