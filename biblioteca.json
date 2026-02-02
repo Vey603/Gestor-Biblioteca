@@ -1,0 +1,157 @@
+{
+    "nombre": "Platzi Biblioteca",
+    "usuarios": [
+        {
+            "nombre": "Jhon",
+            "cedula": 1112204554,
+            "libros_prestados": [],
+            "limite_libros": null
+        },
+        {
+            "nombre": "Carlos Ramírez",
+            "cedula": 1005234567,
+            "libros_prestados": [],
+            "carrera": "Ingeniería de Sistemas",
+            "limite_libros": 3
+        },
+        {
+            "nombre": "María Fernández",
+            "cedula": 1003456789,
+            "libros_prestados": [],
+            "carrera": "Administración de Empresas",
+            "limite_libros": 3
+        },
+        {
+            "nombre": "Juan Pérez",
+            "cedula": 1007654321,
+            "libros_prestados": [],
+            "carrera": "Psicología",
+            "limite_libros": 3
+        },
+        {
+            "nombre": "Ana López",
+            "cedula": 1002345678,
+            "libros_prestados": [],
+            "carrera": "Derecho",
+            "limite_libros": 3
+        },
+        {
+            "nombre": "Luis González",
+            "cedula": 1008765432,
+            "libros_prestados": [],
+            "carrera": "Medicina",
+            "limite_libros": 3
+        },
+        {
+            "nombre": "Laura Martínez",
+            "cedula": 1004567890,
+            "libros_prestados": [],
+            "carrera": "Arquitectura",
+            "limite_libros": 3
+        },
+        {
+            "nombre": "Diego Torres",
+            "cedula": 1009876543,
+            "libros_prestados": [],
+            "carrera": "Economía",
+            "limite_libros": 3
+        },
+        {
+            "nombre": "Sofía Rodríguez",
+            "cedula": 1001234567,
+            "libros_prestados": [],
+            "carrera": "Diseño Gráfico",
+            "limite_libros": 3
+        },
+        {
+            "nombre": "Andrés Castillo",
+            "cedula": 1006543210,
+            "libros_prestados": [],
+            "carrera": "Contaduría",
+            "limite_libros": 3
+        },
+        {
+            "nombre": "Valentina Morales",
+            "cedula": 1003210987,
+            "libros_prestados": [],
+            "carrera": "Ingeniería Industrial",
+            "limite_libros": 3
+        },
+        {
+            "nombre": "Bayron",
+            "cedula": 1114219584,
+            "libros_prestados": [],
+            "carrera": "Sistemas",
+            "limite_libros": 3
+        }
+    ],
+    "libros": [
+        {
+            "titulo": "Hábitos Atómicos",
+            "autor": "James Clear",
+            "isbn": "978-84-18118-04-1",
+            "disponible": true
+        },
+        {
+            "titulo": "No Me Puedes Lastimar",
+            "autor": "David Goggins",
+            "isbn": "978-84-16720-56-8",
+            "disponible": true
+        },
+        {
+            "titulo": "El Poder del Ahora",
+            "autor": "Eckhart Tolle",
+            "isbn": "978-84-7953-436-3",
+            "disponible": true
+        },
+        {
+            "titulo": "Los 7 Hábitos de la Gente Altamente Efectiva",
+            "autor": "Stephen Covey",
+            "isbn": "978-84-493-2906-5",
+            "disponible": true
+        },
+        {
+            "titulo": "Piense y Hágase Rico",
+            "autor": "Napoleon Hill",
+            "isbn": "978-16-040-5075-4",
+            "disponible": true
+        },
+        {
+            "titulo": "El Sutil Arte de Que Te Importe Un Carajo",
+            "autor": "Mark Manson",
+            "isbn": "978-60-735-6801-4",
+            "disponible": true
+        },
+        {
+            "titulo": "Mindset: La Actitud del Éxito",
+            "autor": "Carol Dweck",
+            "isbn": "978-84-995-3832-9",
+            "disponible": true
+        },
+        {
+            "titulo": "Las 48 Leyes del Poder",
+            "autor": "Robert Greene",
+            "isbn": "978-84-253-4222-6",
+            "disponible": true
+        },
+        {
+            "titulo": "El Monje Que Vendió Su Ferrari",
+            "autor": "Robin Sharma",
+            "isbn": "978-84-9793-711-2",
+            "disponible": true
+        },
+        {
+            "titulo": "Padre Rico Padre Pobre",
+            "autor": "Robert Kiyosaki",
+            "isbn": "978-16-945-1873-5",
+            "disponible": true
+        },
+        {
+            "titulo": "Libro de prueba",
+            "autor": "Autor de Prueba",
+            "isbn": "1234-4563-14523-45",
+            "disponible": false
+        }
+    ],
+    "fecha_guardado": "2026-01-31T16:30:52.941729"
+}

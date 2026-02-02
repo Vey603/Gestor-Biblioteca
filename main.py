@@ -1,17 +1,13 @@
-from biblioteca import Biblioteca
-from data import data_estudiantes, data_libros
+import json
+
 from exceptions import LibroNoDisponibleError, UsuarioNoEncontradoError
-from usuarios import Profesor
+from persistencia import Persistencia
 
-biblioteca = Biblioteca("Platzi Biblioteca")
-
-profesor = Profesor("Jhon", 1112204554)
-
-biblioteca.usuarios = [profesor] + data_estudiantes
-biblioteca.libros = data_libros
-
-print(biblioteca.usuarios[11].nombre_completo)
-print(biblioteca.usuarios[11].carrera)
+persistencia = Persistencia()
+try:
+    biblioteca = persistencia.cargar_datos()
+except FileNotFoundError:
+    print("Error al guardar. El archivo no existe.")
 
 print("Bienvenido a Platzi Biblioteca.")
 print("Libros Disponibles:")
@@ -32,3 +28,10 @@ try:
     print(usuario.solicitar_libro(titulo))
 except LibroNoDisponibleError as e:
     print(e)
+
+try:
+    persistencia.guardar_datos(biblioteca)
+except PermissionError:
+    print("Error al guardar. No tienes permisos para sobrescribir el archivo.")
+except json.JSONDecodeError:
+    print("Error. Archivo corrupto.")
